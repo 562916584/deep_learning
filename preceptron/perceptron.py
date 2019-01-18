@@ -2,7 +2,7 @@
 import numpy as np
 
 # 与感知机
-def Add(x1, x2):
+def And(x1, x2):
     A = np.array([x1, x2])
     # 这个是w1 w2 权重，用来衡量输入信号的重要程度
     B = np.array([0.5, 0.5])
@@ -13,6 +13,7 @@ def Add(x1, x2):
         return 0
     else:
         return 1
+
 # 或感知机
 def Or(x1, x2):
     A = np.array([x1, x2])
@@ -20,6 +21,17 @@ def Or(x1, x2):
     b = -0.4
     res = A*B+b
     if res <= 0 :
+        return 0
+    else:
+        return 1
+
+# 与非感知机
+def NAnd(x1, x2):
+    A = np.array([x1, x2])
+    B = np.array([-0.5, -0.5])
+    b = 1.0
+    res = A*B+b
+    if res <=0:
         return 0
     else:
         return 1
