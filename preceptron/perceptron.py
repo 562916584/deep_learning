@@ -44,6 +44,7 @@ def XOR(x1, x2):
     res = AND(A, B)
     return res
 
+# --- 隐藏层输出函数---
 # 阶跃函数
 def step_function(x):
     return np.array(x>0, dtype=int)
@@ -55,6 +56,21 @@ def sigmoid_function(x):
 # 线性整流函数，更加符合仿生学对人体大脑神经元的期望
 def Relu(x):
     return np.maximum(0, x)
+
+# --- 输出层激活函数---
+# 恒等函数 用于回归问题
+def identify_function(x):
+    return x
+
+# 用于分类问题
+def softmax(x):
+    max = np.max(x)
+    # exp里加减一个常数不影响结果，用来防止溢出
+    exp_a = np.exp(a - max)
+    sum_exp_a = np.sum(exp_a)
+    y = exp_a / sum_exp_a
+    return y
+
 
 if __name__=="__main__":
     a = np.arange(-5, 5, 0.1)
