@@ -15,6 +15,7 @@ if __name__=="__main__":
     lable = t_train[0]
     print(lable)
 
+
     print(img.shape)
     img = img.reshape(28, 28)
     print(img.shape)
